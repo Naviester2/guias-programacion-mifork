@@ -16,6 +16,7 @@ A nivel técnico, las respuestas deben redactarse en formato [Markdown](https://
 
 Este repositorio sigue una metodología estructurada que combina el aprendizaje autónomo con la evaluación continua. El proceso incluye un ciclo iterativo semanal donde:
 
+
 1. **Profesor**: Publica nuevas preguntas 5 días antes de cada clase
 2. **Estudiante**: Hace pull, responde con IA generativa, genera PDF y asiste a clase
 3. **Consolidación**: Mejora apuntes y realiza commits obligatorios semanales
