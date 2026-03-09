@@ -234,6 +234,8 @@ try {
 
 En este ejemplo, si `raiz` lanza una `IllegalArgumentException`, solo se ejecuta el primer `catch`. Los demás se ignoran. Si lanzase una excepción de otro tipo no cubierta por los dos primeros `catch`, la capturaría el tercero al ser `Exception` la clase padre de todas las excepciones.
 
+**Nota del director:** Ordenar los `catch` del más específico al más general.
+
 
 ## 9. Si las excepciones producen rupturas en el código llamador, ¿cómo podemos garantizar que se ejecuta siempre finalmente un código necesario para cierre de ficheros, liberacion de recursos, antes de que continúe propagándose la excepción? Pon un ejemplo en Java con `finally`, tanto con `catch` como sin él.
 
@@ -354,6 +356,9 @@ El papel de `RuntimeException` es actuar como clase base de todas las excepcione
 
 Como ejemplo propio, se podría crear una excepción controlada `FicheroConfiguracionException extends Exception` para cuando falla la lectura de un fichero de configuración, y una excepción no controlada `ValorNegativoException extends RuntimeException` para cuando un método recibe un valor negativo que jamás debería haberse pasado.
 
+**Nota del director:** 
+No controladas: No obliga a try-catch / throws
+Controladas: Obliga  a try-catch / throws
 
 ## 12. ¿Qué es y para qué se usa `throws`? ¿Por qué es alternativa a capturar una excepción controlada?
 
@@ -470,6 +475,19 @@ public class Procesador {
 ```
 
 En el primer caso se crea una excepción nueva de más alto nivel manteniendo la original como causa. En el segundo, se re-lanza exactamente la misma excepción después de registrar el error, para que el llamador pueda manejarla.
+
+**Nota del director:** Se puede devolver una excepción dentro de una excepción para seguir propagándola:
+
+``` java
+try{
+    //...
+}catch(NumberFormatException e)
+{
+    //...
+    throw e;
+}
+//El código anterior captura una excepción y la vuelve a lanzar para mayor diversión del próximo programador
+```
 
 
 ## 17. ¿En qué consiste que una excepción sea la **"causa"** de otra excepción? Pon un ejemplo en Java, donde capturemos una excepción de bajo nivel y la encapsulemos en otra personalizada de alto nivel. Cuando una excepción sale por pantalla y tiene una causa, ¿se ve?
