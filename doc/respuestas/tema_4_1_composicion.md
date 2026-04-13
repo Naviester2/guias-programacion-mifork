@@ -457,3 +457,13 @@ public class Main {
 Una relación bidireccional es aquella en la que ambos lados conocen la relación. No solo `Departamento` sabe qué `Profesor` contiene, sino que además cada `Profesor` sabe a qué `Departamento` pertenece. En una relación unidireccional solo uno de los dos sentidos está implementado; en una bidireccional, se puede navegar en ambos.
 
 Para implementarlo en el ejemplo habría que añadir en `Profesor` un atributo `Departamento departamento` y mantener la coherencia desde ambos lados. Eso obliga a actualizar las dos clases cada vez que se añade o elimina un profesor, o cuando cambia de departamento. El punto delicado es que no basta con cambiar una referencia: siempre debe modificarse la relación por las dos partes para que no aparezcan inconsistencias, como un profesor que diga pertenecer a un departamento que no lo tiene realmente en su lista.
+
+### Nota del director:
+	ej:
+		'''java
+			add Profesor(Profesor p)
+			{
+				//...
+				//actualizar el departamento en profesor
+			}
+		'''
