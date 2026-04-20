@@ -270,6 +270,8 @@ La **herencia múltiple** es la capacidad de que una clase herede de **más de u
 
 En Java **no** existe herencia múltiple de clases: una clase solo puede usar `extends` con una única superclase. Sin embargo, Java permite implementar múltiples **interfaces** (`implements`), lo que da herencia múltiple de *tipo* (y, desde Java 8, también puede haber métodos `default` en interfaces, aunque los conflictos se resuelven obligando a sobrescribir).
 
+**Nota del director:** No existe en java para evitar herencia en diamante
+
 ```java
 interface Nadador {
 	void nadar();
@@ -351,6 +353,8 @@ class UsuarioNoEncontradoException extends RuntimeException {
 La herencia no es un mecanismo genérico de “copiar y pegar” comportamiento, sino una forma de modelar una relación conceptual **"es-un"**. Si se usa solo para reutilizar código cuando esa relación no es realmente cierta, el modelo queda forzado: aparece una jerarquía que no representa bien el dominio y se termina violando la idea de que cualquier subtipo debería poder sustituir al supertipo sin sorpresas (principio de sustitución).
 
 Además, la herencia crea un acoplamiento fuerte: la subclase depende de detalles y decisiones de la superclase, y cambios en la clase base pueden romper subclases existentes (problema de la “clase base frágil”). Cuando lo que se busca es reutilización sin una relación “es-un” clara, suele ser mejor extraer una clase colaboradora y **delegar** (composición), o bien usar utilidades, interfaces y otras formas de compartir comportamiento sin heredar implementación.
+
+**Nota del director:** La herencia se debe de usar para reutilizar código **y** cuando se requiere la compatibilidad de tipos.
 
 
 ## 11. Herencia vs. Composición. Se dice que se debe *"favorecer la composición frente a la herencia"*, ¿por qué?
