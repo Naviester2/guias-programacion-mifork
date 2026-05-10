@@ -553,3 +553,9 @@ public class DemoWildcards {
     }
 }
 ```
+
+**Nota del director:** 
+List<String> miLista
+List<?> miLista
+List<? super Number>
+List<? extends Number>
